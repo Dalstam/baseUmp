@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+    <script
+        src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+</head>
+
+<body>
+    <a-scene>
+
+        <a-assets>
+            <a-mixin id="ballTexture" material="src: img/textures/ballTexture.png; depthTest: false "></a-mixin>
+        </a-assets>
+        <a-entity environment></a-entity>
+        <a-curve id="track1">
+            <!-- start pitch -->
+            <a-curve-point id="ballPosStart" position="0 1.8 -21"> </a-curve-point>
+            <!-- bal bij catcher -->
+            <a-curve-point id="ballPosEnd" position="0 1 0"> </a-curve-point>
+        </a-curve>
+        <a-draw-curve id="track" curveref="#track1" visible="true"></a-draw-curve>
+
+
+        <a-entity geometry="primitive:sphere; radius:0.04;" mixin="ballTexture"
+            animation=" property: rotation; from: 0 0 0; to: 0 0 359; loop: true; dur: 500"
+            alongpath="curve: #track1; delay:2500; dur:2500; run:true; loop:true;">
+        </a-entity>
+
+
+        <a-camera look-controls id="ump" look-controls user-height="1.6" position="0 1.2 0" rotation="0 0 0">
+
+
+            </a-entity>
+        </a-camera>
+
+    </a-scene>
+
+</body>
+
+</html>
