@@ -49,9 +49,11 @@
             alongpath="curve: #track1; delay:2500; dur:2500; triggerRadius:0.5; run:true; loop:true;">
         </a-entity>
 
-
-        <a-camera look-controls id=" ump" look-controls user-height="0.5" position="0 0.5 0" rotation="0 0 0">
-        </a-camera>
+        <a-entity id="rig" position="0 0.5 0">
+            <a-camera id="camera"></a-camera>
+        </a-entity>
+        <!-- <a-camera look-controlsook-controls user-height="0.5" position="0 0.5 0" rotation="0 0 0">
+        </a-camera> -->
 
     </a-scene>
     <script src="js/newBallsPlease.js"></script>
