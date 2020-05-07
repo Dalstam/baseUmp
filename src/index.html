@@ -11,43 +11,38 @@
         src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
     <script
         src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
-
-
     <script src="js/pball-listner.js"></script>
-
-
 </head>
 
 <body>
     <a-scene>
-
         <a-assets>
             <a-mixin id="ballTexture" material="src: img/textures/ballTexture.png; depthTest: false "></a-mixin>
-            <a-asset-item id="field" src="models/scene.gltf"></a-asset-item>
-
+            <img id="groundTexture" src="img/Baseball Field.I01.2k.png">
         </a-assets>
+
+        <!-- <a-entity material="shader: sunSky"></a-entity> -->
         <a-entity id="posXTxt" text="value: Hello World;" position="1 1.2 -1"></a-entity>
         <a-entity id="posYTxt" text="value: Hello World;" position="1 1.1 -1"></a-entity>
         <a-entity id="posZTxt" text="value: Hello World;" position="1 1 -1"></a-entity>
+        <a-entity environment="ground:none"></a-entity>
 
-        <a-entity environment></a-entity>
 
-
+        <a-plane src="#groundTexture" rotation="-90 -0.7 0.7" width="1" height="1" scale="100 100 10" material=""
+            geometry="" position="0.56 0 -31"></a-plane>
 
         <a-curve id="track1">
             <!-- start pitch -->
-            <a-curve-point id="ballPosStart" position="0 1.8 -21"> </a-curve-point>
+            <a-curve-point id="ballPosStart" position="0 1.8 -21"></a-curve-point>
             <a-curve-point id="hitStrikezone" position="0 1 -1"></a-curve-point>
             <!-- bal bij catcher -->
             <!-- <a-curve-point id="ballPosEnd" position="0 1 0"> </a-curve-point> -->
-
         </a-curve>
 
         <a-draw-curve id="track" curveref="#track1" visible="true"></a-draw-curve>
 
         <a-entity id="zone" geometry="primitive:box; depth:0.1; height:0.5; width:0.25" position="0 1 -1"
             rotation="0 0 0" material="opacity:0.4">
-
         </a-entity>
         <a-entity id="ball" dynamic-body="shape: sphere" pball-listener geometry="primitive:sphere; radius:0.04;"
             mixin="ballTexture" animation=" property: rotation; from: 0 0 0; to: 0 0 359; loop: true; dur: 500"
@@ -56,9 +51,6 @@
 
 
         <a-camera look-controls id=" ump" look-controls user-height="1.6" position="0 1.2 0" rotation="0 0 0">
-
-
-            </a-entity>
         </a-camera>
 
     </a-scene>
