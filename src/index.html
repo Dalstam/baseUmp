@@ -29,19 +29,19 @@
 
 
         <a-plane src="#groundTexture" rotation="-90 -0.7 0.7" width="1" height="1" scale="100 100 10" material=""
-            geometry="" position="0.56 0 -31"></a-plane>
+            geometry="" position="0.56 1 -31"></a-plane>
 
         <a-curve id="track1">
             <!-- start pitch -->
-            <a-curve-point id="ballPosStart" position="0 1.8 -21"></a-curve-point>
-            <a-curve-point id="hitStrikezone" position="0 1 -1"></a-curve-point>
+            <a-curve-point id="ballPosStart" position="0 2.8 -21"></a-curve-point>
+            <a-curve-point id="hitStrikezone" position="0 2 -1"></a-curve-point>
             <!-- bal bij catcher -->
             <!-- <a-curve-point id="ballPosEnd" position="0 1 0"> </a-curve-point> -->
         </a-curve>
 
         <a-draw-curve id="track" curveref="#track1" visible="true"></a-draw-curve>
 
-        <a-entity id="zone" geometry="primitive:box; depth:0.1; height:0.5; width:0.25" position="0 1 -1"
+        <a-entity id="zone" geometry="primitive:box; depth:0.1; height:0.5; width:0.25" position="0 2 -1"
             rotation="0 0 0" material="opacity:0.4">
         </a-entity>
         <a-entity id="ball" dynamic-body="shape: sphere" pball-listener geometry="primitive:sphere; radius:0.04;"
